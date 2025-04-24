@@ -1,0 +1,185 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif; /* Set global font style */
+  margin: 0;                      /* Remove default body margin */
+  padding: 0;                     /* Remove default body padding */
+  background: #fff;              /* Set background color to white */
+  color: #000;                   /* Set text color to black */
+}
+
+.container {
+  display: flex;                 /* Use flexbox for layout */
+  flex-wrap: wrap;              /* Allow items to wrap to the next line */
+  max-width: 1200px;            /* Set maximum width for the container */
+  margin: 0 auto;               /* Center the container horizontally */
+  padding: 40px 20px;           /* Add padding inside the container */
+  gap: 20px;                    /* Space between flex items */
+  align-items: flex-start;      /* Align items to the top */
+}
+
+.left-column,
+.right-column {
+  flex: 1;                      /* Allow both columns to grow equally */
+  min-width: 300px;             /* Ensure a minimum width for responsiveness */
+}
+
+.divider {
+  width: 2px;                   /* Set divider width */
+  background-color: #b3003c;    /* Divider color */
+  align-self: stretch;          /* Make divider fill height of parent */
+  margin: 0 10px;               /* Horizontal space around the divider */
+}
+
+/* Left Column Styles */
+.left-column h2 {
+  font-size: 26px;              /* Section title font size */
+  margin-bottom: 10px;          /* Space below the title */
+}
+
+.read-more {
+  display: inline-block;        /* Allow margin to apply */
+  margin-bottom: 25px;          /* Space below the link */
+  color: #b3003c;               /* Link color */
+  font-size: 14px;              /* Font size for read more link */
+  text-decoration: none;        /* Remove underline */
+}
+
+.article {
+  display: flex;                /* Use flexbox for article layout */
+  gap: 15px;                    /* Space between image and text */
+  margin-bottom: 25px;          /* Space between articles */
+}
+
+.article img {
+  width: 120px;                 /* Fixed width for article image */
+  object-fit: cover;            /* Crop image to fit container */
+  border-radius: 4px;           /* Slightly rounded corners */
+}
+
+.article .text {
+  flex: 1;                      /* Make text take remaining space */
+}
+
+.article h3 {
+  font-size: 16px;              /* Title font size */
+  margin: 0 0 5px 0;            /* Space below the title */
+}
+
+.article p {
+  font-size: 14px;              /* Paragraph font size */
+  margin: 0;                    /* Remove default margin */
+  color: #555;                  /* Slightly lighter text */
+  text-align: left;             /* Left-align article text */
+}
+
+/* Right Column Styles */
+.right-column {
+  text-align: right;            /* Align all content to the right */
+  display: flex;                /* Flex layout for stacking */
+  flex-direction: column;       
+  gap: 20px;                    
+  padding-left: 10px;           /* Space between divider and column content */
+}
+
+.highlighted-text {
+  text-align: right;            /* Align text to the right */
+  margin: 0;                    
+  padding: 0;                  
+}
+
+/* Overwriting divider for right column */
+.divider {
+  width: 1px;                   /* Adjust divider width */
+  background-color: #b3003c;    /* Divider color */
+  align-self: stretch;          /* Full height divider */
+  margin: 0 10px;               /* Horizontal spacing */
+}
+
+.highlighted-text h2 {
+  font-size: 26px;              /* Header font size */
+  color: #000;                  /* Header color */
+  margin: 0 0 5px 0;            /* Margin below header */
+  padding-bottom: 5px;          /* Space between text and border */
+  border-bottom: 2px solid #000; /* Underline effect */
+}
+
+.highlighted-text p {
+  font-size: 14px;              /* Paragraph text size */
+  line-height: 1.6;             /* Line spacing */
+  color: #333;                  /* Dark grey text */
+  margin: 0 0 15px 0;           /* Space below paragraph */
+  text-align: right;            /* Right-align paragraph */
+}
+
+/* Navigation Styles */
+nav {
+  margin: 0;                    
+  padding: 0;                   
+  text-align: right;            /* Right-align nav items */
+}
+
+nav ul {
+  list-style: none;             /* Remove bullets */
+  margin: 0;                    
+  padding: 0;                   
+  text-align: right;            /* Right-align list */
+}
+
+nav li {
+  margin-bottom: 10px;          /* Space between nav items */
+  text-align: right;            /* Right-align nav text */
+}
+
+nav a {
+  text-decoration: underline;   /* Underline link */
+  color: #000;                  /* Link color */
+  font-weight: bold;            /* Bold text */
+  text-align: right;            /* Right-align link */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;     /* Stack columns vertically on small screens */
+  }
+
+  .divider {
+    display: none;              /* Hide divider on small screens */
+  }
+
+  .right-column {
+    padding-left: 0;            
+    text-align: right;          /* Keep right alignment */
+  }
+
+  /* Ensure text in right column remains right-aligned */
+  .highlighted-text,
+  .highlighted-text p,
+  nav,
+  nav ul,
+  nav li,
+  nav a {
+    text-align: right;
+  }
+
+  .article {
+    flex-direction: column;     /* Stack image and text vertically */
+    align-items: flex-start;    /* Align to the start for small screens */
+  }
+
+  .article img {
+    width: 100%;                /* Full-width image */
+    height: auto;               /* Maintain aspect ratio */
+  }
+
+  .article h3 {
+    text-align: left;           /* Align heading left */
+    width: 100%;                /* Full-width heading */
+    font-size: 20px;            /* Slightly larger on mobile */
+  }
+
+  .article p {
+    text-align: left;           /* Align paragraph left */
+    width: 100%;                /* Full-width paragraph */
+  }
+}
